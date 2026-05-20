@@ -98,10 +98,11 @@
       vec2 p = gl_FragCoord.xy * scale;
 
       // Wind Waker colors
+      // Light mode
       vec3 lightBright = vec3(1.0, 0.427, 0.0);       // #ff6d00 (Flame Orange)
       vec3 lightDark   = vec3(0.235, 0.035, 0.424);   // #3c096c (Velvet Purple)
       vec3 lightPageBg = vec3(0.886, 0.800, 0.941);   // #e2ccf0 (UPDATED: Matches your lavender background!)
-
+      // Dark mode
       vec3 darkBright  = vec3(1.0, 0.62, 0.0);        // #ff9e00 (Radiant Neon Orange)
       vec3 darkDark    = vec3(0.141, 0.0, 0.275);     // #240046 (Deepest Purple)
       vec3 darkPageBg  = vec3(0.086, 0.0, 0.173);     // #16002c (Obsidian Purple Background)

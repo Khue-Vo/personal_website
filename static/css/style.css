@@ -4,15 +4,15 @@
 :root {
   /* Core Layout - Deep Purple/Black in dark mode, clean pop in light mode */
   --background-color: light-dark(#e2ccf0, #16002c);       /* Clean White vs Deepest Obsidian Purple */
-  --text-color: light-dark(#240046, #e2ccf0);             /* Darkest Purple vs Bright Lavender-White */
+  --text-color: light-dark(#16002c, #faf6fe);             /* Darkest Purple vs Bright Lavender-White */
   /* Brand Accents - Using your oranges for high contrast actions */
-  --primary-color: light-dark(#ff6d00, #ff9e00);          /* Flame Orange vs Radiant Neon Orange */
-  --secondary-color: light-dark(#7b2cbf, #ff7900);        /* Deep Violet vs Punchy Warning Orange */
+  --primary-color: light-dark(#b33600, #ff9e00);          /* Deep Blood-Orange vs Radiant Neon Orange */
+  --secondary-color: light-dark(#3c096c, #ff7900);        /* Velvet Purple vs Punchy Warning Orange */
     /* Typography Hierarchy */
-  --header-color: light-dark(#3c096c, #9d4edd);           /* Velvet Purple vs Electric Magenta-Purple */
-  --faded-color: light-dark(#5a189a, #7b2cbf);            /* Mid-tone Purples for subtext/dates */
+  --header-color: light-dark(#3c096c, #c2a3dc);           /* Velvet Purple vs Electric Magenta-Purple */
+  --faded-color: light-dark(#3c096c, #c2a3dc);            /* Deepened Purple vs Lightened Lavender */
     /* Borders and Containers */
-  --border-color: light-dark(#e2ccf0, #3c096c);           /* Soft Lavender vs Solid Royal Purple border */
+  --border-color: light-dark(#c2a3dc, #3c096c);           /* Lavender vs Solid Royal Purple border */
   --code-background-color: light-dark(#d3bce3, #240046);  /* Lavender Gray vs Deep Midnight Code box */
     /* Code Blocks (Fenced elements) */
   --code-block-background-color: #240046;                 /* Fixed deep dark purple background for code */
@@ -23,7 +23,7 @@
     /* Shadows and Warnings */
   --pre-shadow: light-dark(rgba(90, 24, 154, 0.15), rgba(0, 0, 0, 0.5));
   --hr-shadow: light-dark(var(--border-color), #100022);
-  --date-warning-text-color: light-dark(#ff6d00, #ff9100); /* High-visibility Oranges */
+  --date-warning-text-color: light-dark(#b33600, #ff9100); /* High-visibility Oranges */
   color-scheme: light dark;
 
   &:not([data-initial-load="true"]) {
@@ -125,7 +125,7 @@ p.theme-selector {
 
 /* headlines */
 h1, h2, h3, h4, h5, h6      { font-family: 'Lora', sans-serif;
-                              font-weight: 500; color: var(--header-color) }
+                              font-weight: bold; color: var(--header-color) }
 h1 a, h2 a, h3 a, h4 a,
 h5 a, h6 a                  { text-decoration: none; }
 h1 a:hover, h2 a:hover,

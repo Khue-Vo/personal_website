@@ -51,6 +51,25 @@
 
         <div class="footer">
             <p>© 2026 Senior Capstone Portfolio | Built with Flask</p>
+            <!-- Legal Attribution required by the CC BY-NC 4.0 License -->
+            <p>
+                Layout base design adapted from <a href="https://lucumr.pocoo.org/" target="_blank" rel="noopener">Armin Ronacher</a> (CC BY-NC 4.0)
+            </p>
+            <p class="theme-selector" hidden>
+                Color scheme:
+                <label><input type="radio" name="theme" value="system"> <span>auto</span></label>,
+                <label><input type="radio" name="theme" value="light"> <span>light</span></label>,
+                <label><input type="radio" name="theme" value="dark"> <span>dark</span></label>.
+                <script>
+                    document.querySelector('.theme-selector').removeAttribute('hidden');
+                    document.querySelectorAll('input[name="theme"]').forEach(input => {
+                        input.checked = input.value === $THEME;
+                        input.addEventListener('change', () => {
+                            selectTheme(input.value);
+                        });
+                    });
+                </script>
+            </p>
         </div>
     </div>
     <div class="footer-image">
