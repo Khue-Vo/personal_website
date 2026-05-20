@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<div class="container">
+    <article class="project-entry">
+        <!-- Back navigation link -->
+        <div class="back-link">
+            <a href="{{ url_for('projects') }}">← Back to All Projects</a>
+        </div>
+
+        <!-- Project Header -->
+        <header class="project-header">
+            <h2>{{ title }}</h2>
+            <hr>
+        </header>
+
+        <!-- Project Body Content -->
+        <!-- The '| safe' filter tells Jinja to render the HTML tags converted from your Markdown instead of escaping them -->
+        <div class="project-body">
+            {{ content | safe }}
+        </div>
+
+        <!-- Project Tags -->
+        {% if tags %}
+        <div class="project-tags">
+            <p class="tags"><em>{{ tags | join(", ") }}</em></p>
+        </div>
+        {% endif %}
+    </article>
+</div>
+{% endblock %}

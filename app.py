@@ -1,6 +1,14 @@
-from flask import Flask, render_template
+import os
+import frontmatter
+import markdown
+from flask import Flask, current_app, render_template, send_from_directory, abort
+
+from utils import format_date, get_all_projects
 
 app = Flask(__name__)
+
+# Define the directory where project markdown files are stored
+PROJECTS_DIR = os.path.join(app.root_path, 'static', 'projects')
 
 @app.route('/')
 def index():
@@ -9,15 +17,36 @@ def index():
 
 @app.route('/projects/')
 def projects():
-    # Renders 5 entries (SOAR narratives & failure story)
-    return render_template('projects.html')
+    # Renders entries (SOAR narratives & failure story)
+    project_entries = get_all_projects(PROJECTS_DIR)
+   
+    return render_template(
+        'projects.html', 
+        entries=project_entries,
+        format_date=format_date, 
+    )
+
+@app.route('/projects/<entry>/')
+def project_detail(entry):
+    file_path = os.path.join(PROJECTS_DIR, f"{entry}.md")
+    
+    if not os.path.exists(file_path):
+        abort(404)
+        
+    post = frontmatter.load(file_path)
+    html_content = markdown.markdown(post.content)
+    
+    return render_template(
+        'content.html',
+        title=post.get("title"),
+        content=html_content,
+        tags=post.get("tags", [])
+    )
 
 @app.route('/resume/')
 def resume():
     # Renders 1-2 page resume
     return render_template('resume.html')
-from flask import send_from_directory, current_app
-import os
 
 @app.route('/resume/view')
 def serve_resume():

@@ -1,0 +1,12 @@
+---
+title: "Project 1: Enterprise Migration"
+pub_date: "2026-05-20"
+summary: "A deep dive into migrating a legacy system using the SOAR framework."
+tags: ["Python", "Flask", "Docker", "AWS"]
+---
+
+### Situation
+The legacy database was hitting its maximum connection pool limits daily...
+
+### Obstacle
+We could not afford any system downtime during peak business hours...

@@ -1,68 +1,26 @@
 {% extends 'base.html' %}
+{% block title %}Projects & Experiences{% endblock %}
 {% block content %}
-<div class="container">
-    <h1>Projects & Experiences</h1>
-    
-    <div class="entry">
-        <h2>GreenStep Challenge - Admin Side</h2>
-        <!-- <img src="{{ url_for('static', filename='images/greenstep.png') }}" alt="GreenStep Dashboard UI"> -->
-        
-        <p><strong>Situation:</strong> We needed an admin dashboard for a sustainability application...</p>
-        <p><strong>Obstacle:</strong> ...</p>
-        <p><strong>Action:</strong> My role focused on setting up database schemas and backend connectivity...</p>
-        <p><strong>Result:</strong> ...</p>
-        
-        <div class="keywords">
-            <span>Keywords:</span> React, Supabase, Backend Architecture, Sustainability [cite: 24, 77]
+    <div class="container">
+        <h1>What I've Built</h1>
+        <div class="entry-wrapper">
+            <p>
+            This space highlights a curated collection of my software engineering projects, data architectures, and creative designs. My approach bridges rigid technical execution with business strategy and human-centered problem solving. Below, you will find how I utilize full-stack development, backend design, and strategic thinking to build scalable systems and meaningful products.
+            </p>
+        {%- for entry in entries %}
+        <div class="entry-overview">
+        <div class="date">{{ format_date(entry.pub_date) }}</div>
+        <div class="detail">
+            <h1><a href="{{ url_for('project_detail', entry=entry.slug) }}">{{ entry.title }}</a></h1>
+            {% if entry.summary %}
+            <div class="summary">{{ entry.summary }}</div>
+            {% endif %}
+            {% if entry.tags %}
+            <p class="tags"><em>{{ entry.tags | join(", ") }}</em></p>
+            {% endif %}
         </div>
-
-        <h2>Personal Vehicle Management Website</h2>
-        <!-- <img src="{{ url_for('static', filename='images/greenstep.png') }}" alt="GreenStep Dashboard UI"> -->
-        
-        <p><strong>Situation:</strong> We needed an admin dashboard for a sustainability application...</p>
-        <p><strong>Obstacle:</strong> ...</p>
-        <p><strong>Action:</strong> My role focused on setting up database schemas and backend connectivity...</p>
-        <p><strong>Result:</strong> ...</p>
-        
-        <div class="keywords">
-            <span>Keywords:</span> React, Supabase, Backend Architecture, Sustainability [cite: 24, 77]
         </div>
-
-        <h2>GreenStep Cities System - Database Design</h2>
-        <!-- <img src="{{ url_for('static', filename='images/greenstep.png') }}" alt="GreenStep Dashboard UI"> -->
-        
-        <p><strong>Situation:</strong> We needed an admin dashboard for a sustainability application...</p>
-        <p><strong>Obstacle:</strong> ...</p>
-        <p><strong>Action:</strong> My role focused on setting up database schemas and backend connectivity...</p>
-        <p><strong>Result:</strong> ...</p>
-        
-        <div class="keywords">
-            <span>Keywords:</span> React, Supabase, Backend Architecture, Sustainability [cite: 24, 77]
-        </div>
-
-        <h2>Digital Marketing Study</h2>
-        <!-- <img src="{{ url_for('static', filename='images/greenstep.png') }}" alt="GreenStep Dashboard UI"> -->
-        
-        <p><strong>Situation:</strong> We needed an admin dashboard for a sustainability application...</p>
-        <p><strong>Obstacle:</strong> ...</p>
-        <p><strong>Action:</strong> My role focused on setting up database schemas and backend connectivity...</p>
-        <p><strong>Result:</strong> ...</p>
-        
-        <div class="keywords">
-            <span>Keywords:</span> React, Supabase, Backend Architecture, Sustainability [cite: 24, 77]
-        </div>
-
-        <h2>Crochet Design</h2>
-        <!-- <img src="{{ url_for('static', filename='images/greenstep.png') }}" alt="GreenStep Dashboard UI"> -->
-        
-        <p><strong>Situation:</strong> We needed an admin dashboard for a sustainability application...</p>
-        <p><strong>Obstacle:</strong> ...</p>
-        <p><strong>Action:</strong> My role focused on setting up database schemas and backend connectivity...</p>
-        <p><strong>Result:</strong> ...</p>
-        
-        <div class="keywords">
-            <span>Keywords:</span> React, Supabase, Backend Architecture, Sustainability [cite: 24, 77]
-        </div>
+        {%- endfor %}  
     </div>
-</div>
+    </div>
 {% endblock %}
