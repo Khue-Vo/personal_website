@@ -4,22 +4,18 @@
 
 {% block content %}
 <div class="container">
-    <article class="project-entry">
-        <!-- Back navigation link -->
+    <div class="body">        
         <div class="back-link">
             <a href="{{ url_for('projects') }}">← Back to All Projects</a>
         </div>
 
-        <!-- Project Header -->
         <header class="project-header">
             <h2>{{ title }}</h2>
             <hr>
         </header>
-
-        <!-- Project Body Content -->
-        <!-- The '| safe' filter tells Jinja to render the HTML tags converted from your Markdown instead of escaping them -->
         <div class="project-body">
             {{ content | safe }}
+            <!-- The '| safe' filter tells Jinja to render the HTML content converted from Markdown instead of escaping them -->
         </div>
 
         <!-- Project Tags -->
@@ -28,6 +24,6 @@
             <p class="tags"><em>{{ tags | join(", ") }}</em></p>
         </div>
         {% endif %}
-    </article>
+    </div>
 </div>
 {% endblock %}

@@ -1,5 +1,5 @@
 ---
-title: "GreenStep Challenge - Admin Side"
+title: "GreenStep Cities - Database Design"
 pub_date: "2026-05-20"
 summary: "A deep dive into migrating a legacy system using the SOAR framework."
 tags: ["Python", "Flask", "Docker", "AWS"]
